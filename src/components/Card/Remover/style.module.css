@@ -1,0 +1,8 @@
+.container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.container span {
+  font-size: 0.75em;
+}

@@ -1,0 +1,11 @@
+.container header {
+  --border: 0.05px solid var(--color-primary-contrast);
+  border-bottom: var(--border);
+  border-left: none;
+  border-right: none;
+}
+.container .row {
+  display: flex;
+  padding: 0.5em 0;
+  justify-content: space-between;
+}

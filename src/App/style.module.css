@@ -1,4 +1,5 @@
 .app {
+  --padding: 1.5em;
   background-color: var(--color-primary);
   display: flex;
   flex-direction: column;
@@ -6,17 +7,40 @@
   min-height: 100vh;
   width: 100%;
 
-  padding: 1.5em;
+  padding: 0 var(--padding);
 }
-.app header {
+.app > * {
+  width: 100%;
+}
+.app > main {
+  padding: var(--padding) 0;
+  flex-grow: 1;
+  --border: 0.05px solid var(--color-primary-contrast);
+}
+.app > main > * {
+  border-top: var(--border);
+}
+.app > main > *:last-child {
+  border-bottom: var(--border);
+}
+.app > header {
   width: 100%;
   position: sticky;
   top: 0;
   left: 0;
+  padding-top: var(--padding);
+  display: flex;
+  align-items: center;
 }
-.app footer {
+.app > header > h1 {
+  font-size: 1.7em;
+  margin-right: 0.5em;
+}
+.app > footer {
   width: 100%;
   position: sticky;
   bottom: 0;
   left: 0;
+  border: none;
+  padding-bottom: var(--padding);
 }
