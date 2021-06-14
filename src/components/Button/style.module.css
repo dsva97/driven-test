@@ -1,0 +1,25 @@
+.btn {
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+  font-size: 1.2em;
+  border-radius: 8px;
+
+  font-weight: 100;
+}
+.filled {
+  background: var(--color-primary-contrast);
+  color: var(--color-primary);
+}
+.full {
+  width: 100%;
+}
+.normal {
+  width: auto;
+}
