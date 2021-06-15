@@ -44,3 +44,10 @@
   border: none;
   padding-bottom: var(--padding);
 }
+
+@media (min-width: 720px) {
+  .app {
+    margin: auto;
+    width: 650px;
+  }
+}

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { AiOutlineReload } from "react-icons/ai"
 import BtnPays from '../components/BtnPays';
-import BtnCircle from '../components/BtnCircle';
 import Card from "../components/Card";
 import Result from "../components/Result";
 import Loader from '../components/Loader';
+import BtnReload from '../components/BtnReload';
 
 import classes from "./style.module.css"
 
@@ -43,9 +42,7 @@ const App = () => {
       <div className={classes.app}>
         <header >
           <h1>Carrito de compras</h1>
-          <BtnCircle onClick={initData} filled={false}>
-            <AiOutlineReload/>
-          </BtnCircle>
+          <BtnReload load={initData} />
         </header>
         <main>
           { 
@@ -57,7 +54,15 @@ const App = () => {
                 <h1>Hubo un error:</h1>
                 <p>{stateApp.data.loadError}</p>
                 </div>
-                : stateApp.data.products.map(Card) 
+                : (
+                  stateApp.data.products.length
+                    ? stateApp.data.products.map(Card) 
+                    :  <div style={{padding: "2em 0"}}>
+                      <h1>Productos no agregados</h1>
+                      <p>Para cargar los productos haz click aquí:</p>
+                      <BtnReload load={initData} />
+                    </div>
+                )
               )
           }
         </main>
