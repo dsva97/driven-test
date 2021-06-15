@@ -7,10 +7,10 @@ import classes from "./style.module.css"
 
 const Quantity = ({ quantity, productId }) => {
   const {data, setData} = useContext(AppContext)
-  
+  const products = [...data.products]
+  const product = data.products.find(product=>product.id === productId)
+
   const modifyQuantity = (action) => {
-    const products = [...data.products]
-    const product = data.products.find(product=>product.id === productId)
     if(product) {
       switch(action) {
         case "plus":
@@ -32,9 +32,9 @@ const Quantity = ({ quantity, productId }) => {
       <strong>Cantidad</strong>
       <br />
       <div className={classes.buttons}>
-        <BtnCircle onClick={()=>modifyQuantity("less")}>-</BtnCircle>
+        <BtnCircle onClick={()=>modifyQuantity("less")} disabled={!quantity}>-</BtnCircle>
         <span> {quantity} </span>
-        <BtnCircle onClick={()=>modifyQuantity("plus")}>+</BtnCircle>
+        <BtnCircle onClick={()=>modifyQuantity("plus")} disabled={product.amount === quantity}>+</BtnCircle>
       </div>
     </div>
   )
