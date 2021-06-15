@@ -4,5 +4,6 @@ export function intlRound(numero, decimales = 2, usarComa = false) {
     useGrouping: false,
   };
   usarComa = usarComa ? "es" : "en";
-  return new Intl.NumberFormat(usarComa, opciones).format(numero);
+  const result = new Intl.NumberFormat(usarComa, opciones).format(numero);
+  return result % 1 === 0 ? `${result}.00` : result;
 }
